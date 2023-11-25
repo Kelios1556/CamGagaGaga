@@ -35,7 +35,7 @@ def smooth(datax, datay):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('-w', type=str) # determine plot window or not
+    parser.add_argument('-w', nargs='+', type=str) # determine plot window or not
     parser.add_argument('-o', type=str) # determine plot un-connected data or not
     args = parser.parse_args()
     PLOT_WINDOW = True
@@ -47,7 +47,7 @@ def main():
         if args.w.lower() == 'none':
             PLOT_WINDOW = False
         '''
-        if args.w.lower() == 'all':
+        if 'all' in args.w:
             PLOT_WINDOW = True
         if 'blackman' in args.w:
             plottedWin[0] = True
